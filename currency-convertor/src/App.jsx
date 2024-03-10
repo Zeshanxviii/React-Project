@@ -8,6 +8,7 @@ function App() {
     const [From, setFrom] = useState("usd")
     const [amount, SetAmount] =useState(null)
     const [converted, setConvert]= useState(null)
+    const [currencychange ,selectCurrencychange]=useState()
 
 
   const currencyInfo=useCurrency(From)
@@ -16,7 +17,8 @@ function App() {
   const swap =()=>{
     setTo(From)
     setFrom(To)
-    // SetAmount(convert)
+    SetAmount(convert)
+    selectCurrencychange(setConvert)
 
   }
 
@@ -67,7 +69,8 @@ function App() {
                     <div className="w-full mt-1 mb-4">
                         <InputBox
                             label="To"
-                            onAmountChange={setConvert}
+                            // amount={setConvert}
+                            onAmountChange={(setConvert)=>(setConvert)}
                             onCurrencyChange={(currency)=>setTo(currency)}
                             optionlist={option}
                             amountDisabled
